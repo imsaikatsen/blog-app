@@ -40,10 +40,16 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $image = $request->file('image');
+        $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
+        $destinationPath = public_path('upload/blog_images');
+        $image->move($destinationPath, $input['imagename']);
+
         $post = new Post();
         $post->title = $request->title;
         $post->body = $request->body;
         $post->author_id= Auth::user()->id;
+        $post->image = $input['imagename'];
         $post->save();
         return redirect()->route('home');
     }
