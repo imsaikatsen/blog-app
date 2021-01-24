@@ -14,7 +14,7 @@ class PostController extends Controller
     public function index()
     {
        $post = Post::orderBy('id', 'DESC')->get();
-       return view('home',['posts'=>$post]);
+       return view('index',['posts'=>$post]);
     }
 
     /**
@@ -31,7 +31,7 @@ class PostController extends Controller
     public function search(Request $request){
         $search = $request->get('search');
         $post = Post::where('title','like','%'.$search.'%')->orWhere('body','like','%'.$search.'%')->get();
-        return view('home',['posts'=>$post]);
+        return view('index',['posts'=>$post]);
     }
 
     /**
@@ -51,7 +51,7 @@ class PostController extends Controller
         $post->author_id= Auth::user()->id;
         $post->image = $input['imagename'];
         $post->save();
-        return redirect()->route('home');
+        return redirect()->route('posts');
     }
 
     /**
@@ -85,7 +85,7 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->body = $request->body;
         $post->save();
-        return redirect()->route('home');
+        return redirect()->route('index');
     }
 
     /**

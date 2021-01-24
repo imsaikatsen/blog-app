@@ -13,18 +13,15 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+Auth::routes(['verify' => true]);
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
+
 Route::get('posts/search','App\Http\Controllers\PostController@search');
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
 Route::resource('posts', \App\Http\Controllers\PostController::class);
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\PostController::class, 'index'])->name('home');
+Route::get('/posts', [App\Http\Controllers\PostController::class, 'index'])->name('posts.index');
 Route::post('/comment/store/{id}', 'App\Http\Controllers\CommentController@store')->name('comment.add');
 
 
