@@ -41,7 +41,7 @@
                                 </td>
                                 <td>
                                     <a title="edit" class="btn  btn-sm py-0 btn-primary" href="{{route('posts.edit', $post->id)}}">Edit</a>
-                                    <a class="btn btn-sm py-0 btn-success" href="{{route('posts.show', $post->id)}}">View Post</a>
+                                    <a class="btn btn-sm py-0 btn-success" href="{{route('posts.show', $post->id)}}">View</a>
                                     <a href="{{route('posts.destroy', $post->id)}}" class="btn btn-sm py-0 btn-danger">Delete</a>
                                 </td>
                             </tr>

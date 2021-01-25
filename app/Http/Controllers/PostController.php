@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class PostController extends Controller
 {
@@ -93,10 +94,14 @@ class PostController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
-    {   dd($id);
+    {
         $post = Post::find($id);
         $post->delete();
 
+    }
+
+    public function createPDF(){
+        $post = Post::all();
     }
 
 }

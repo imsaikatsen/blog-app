@@ -25,6 +25,11 @@ Route::get('/posts', [App\Http\Controllers\PostController::class, 'index'])->nam
 Route::post('/comment/store/{id}', 'App\Http\Controllers\CommentController@store')->name('comment.add');
 
 
+Route::post('/sendmail/send/{id}','App\Http\Controllers\SendEmailController@send');
+
+
+
+
 
 
 
