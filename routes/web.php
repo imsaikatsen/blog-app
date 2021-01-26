@@ -26,6 +26,7 @@ Route::post('/comment/store/{id}', 'App\Http\Controllers\CommentController@store
 
 
 Route::post('/sendmail/send/{id}','App\Http\Controllers\SendEmailController@send');
+Route::get('posts/pdf/{id}','App\Http\Controllers\PostController@createPDF');
 
 
 

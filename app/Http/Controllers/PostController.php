@@ -89,6 +89,12 @@ class PostController extends Controller
         return redirect()->route('index');
     }
 
+    public function createPDF(){
+        $post = Post::all();
+        $pdf = \PDF::loadView('pdf_view', ['posts'=>$post]);
+        return $pdf->stream();
+    }
+
     /**
      * @param $id
      * @return \Illuminate\Http\RedirectResponse
@@ -98,10 +104,6 @@ class PostController extends Controller
         $post = Post::find($id);
         $post->delete();
 
-    }
-
-    public function createPDF(){
-        $post = Post::all();
     }
 
 }

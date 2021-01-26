@@ -36,7 +36,7 @@
                         </div>
                     </form>
                     <div class="d-flex justify-content-end">
-                        <a class="btn btn-info" href="{{ URL::to('#') }}">Export to PDF</a>
+                        <a class="btn btn-info" href="{{ URL('/posts/pdf',$post->id) }}">Download PDF</a>
                     </div>
                 </div>
             </div>
